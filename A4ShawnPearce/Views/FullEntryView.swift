@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct FullEntryView: View {
+    let todo: Todo
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TodoListIcon(todo : todo, size: 250)
+        TodoDetailsView(todo:todo)
+        
     }
 }
 
 #Preview {
-    FullEntryView()
+    FullEntryView(todo : Todo.todoList[2])
 }

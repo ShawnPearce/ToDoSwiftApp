@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct TodoListIcon: View {
+    let todo : Todo
+    let size : CGFloat
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        Image("\(todo.priorityLevel)")
+            .resizable()
+            .frame(width: size, height: size)
+        
     }
 }
-
 #Preview {
-    TodoListIcon()
+    TodoListIcon(todo:Todo.todoList[0],size:250)
 }
+

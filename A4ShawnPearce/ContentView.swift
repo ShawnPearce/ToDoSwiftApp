@@ -15,21 +15,22 @@ struct ContentView: View {
     
     var body: some View {
         VStack{
-            
-            Spacer()
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            Text("Test")
-                .multilineTextAlignment(.center)
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            NavigationStack{
+                List{
+                    ForEach(todo){todo in
+                        NavigationLink(value:todo){
+                            HStack{
+                                TodoListIcon(todo: todo, size :50)
+                                VStack(alignment: .leading){
+                                    Text(todo.title)
+                                }
+                            }
+                        }
+                    }
+                }
+                .navigationTitle("Todo List")
+                .navigationDestination(for:Todo.self){todo in FullEntryView(todo:todo)}
+            }
             Spacer()
             Toggle("LightMode/DarkMode", isOn:$isLight)
                 .toggleStyle(.button)

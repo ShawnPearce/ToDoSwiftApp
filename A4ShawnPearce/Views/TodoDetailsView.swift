@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct TodoDetailsView: View {
+   
+    let todo: Todo
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        var dateFormatter: DateFormatter {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .none
+            return formatter
+        }
+                    Text(todo.title)
+                    Text(dateFormatter.string(from: todo.deadLine))
+        Text(todo.description).multilineTextAlignment(.center)
     }
 }
 
 #Preview {
-    TodoDetailsView()
+    TodoDetailsView(todo : Todo.todoList[0])
 }
