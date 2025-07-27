@@ -8,17 +8,42 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var isLight = true
+    
+    let todo : [Todo]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        VStack{
+            
+            Spacer()
+            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            Text("Test")
+                .multilineTextAlignment(.center)
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            Spacer()
+            Toggle("LightMode/DarkMode", isOn:$isLight)
+                .toggleStyle(.button)
+            
+            }
+        
+        .frame(maxWidth:.infinity, maxHeight:.infinity)
+        .foregroundStyle(.regText)
+        .background(.regBg)
+        .preferredColorScheme(isLight ? .light : .dark)
+        
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(todo : Todo.todoList)
 }
