@@ -23,6 +23,8 @@ struct ContentView: View {
                                 TodoListIcon(todo: todo, size :50)
                                 VStack(alignment: .leading){
                                     Text(todo.title)
+                                    Text("Deadline: \(Todo.dateFormatter.string(from: todo.deadLine))")
+
                                 }
                             }
                         }

@@ -11,15 +11,8 @@ struct TodoDetailsView: View {
    
     let todo: Todo
     var body: some View {
-        
-        var dateFormatter: DateFormatter {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            formatter.timeStyle = .short
-            return formatter
-        }
-                    Text(todo.title)
-                    Text(dateFormatter.string(from: todo.deadLine))
+        Text(todo.title)
+        Text(Todo.dateFormatter.string(from: todo.deadLine))
         Text(todo.description).multilineTextAlignment(.center)
     }
 }
