@@ -11,7 +11,7 @@ import SwiftUI
 struct A4ShawnPearceApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(todo : Todo.todoList)
+            ContentView(todos : Todo.todoList)
         }
     }
 }

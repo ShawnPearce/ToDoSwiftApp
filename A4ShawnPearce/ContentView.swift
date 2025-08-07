@@ -11,16 +11,17 @@ struct ContentView: View {
     
     @State private var isLight = true
     
-    let todo : [Todo]
+    let todos : [Todo]
     
     var body: some View {
         VStack{
             NavigationStack{
                 List{
-                    ForEach(todo){todo in
+                    ForEach(todos){todo in
                         NavigationLink(value:todo){
                             HStack{
                                 TodoListIcon(todo: todo, size :50)
+                                //Display the text as red if the deadline has passed
                                 VStack(alignment: .leading){
                                     Text(todo.title)
                                         .foregroundColor(todo.deadLine < Date() ? .red : .primary)
@@ -36,19 +37,19 @@ struct ContentView: View {
                 .navigationDestination(for:Todo.self){todo in FullEntryView(todo:todo)}
             }
             Spacer()
-            Toggle("LightMode/DarkMode", isOn:$isLight)
+            Toggle("Light/DarkMode", isOn:$isLight)
                 .toggleStyle(.button)
             
             }
         
         .frame(maxWidth:.infinity, maxHeight:.infinity)
-        .foregroundStyle(.regText)
-        .background(.regBg)
+        .foregroundStyle(.regText)//defined in assets
+        .background(.regBg)//defined in assets
         .preferredColorScheme(isLight ? .light : .dark)
         
     }
 }
 
 #Preview {
-    ContentView(todo : Todo.todoList)
+    ContentView(todos : Todo.todoList)
 }
