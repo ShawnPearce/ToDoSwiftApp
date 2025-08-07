@@ -13,7 +13,7 @@ struct TodoDetailsView: View {
 
     var body: some View {
         
-        
+        //see documentation https://developer.apple.com/documentation/foundation/calendar
         let components = Calendar.current.dateComponents([.day,.hour], from:Date(),to:todo.deadLine)
         let days = abs(components.day ?? 0)
         let hours = abs(components.hour ?? 0)
