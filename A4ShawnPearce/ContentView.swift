@@ -23,7 +23,9 @@ struct ContentView: View {
                                 TodoListIcon(todo: todo, size :50)
                                 VStack(alignment: .leading){
                                     Text(todo.title)
+                                        .foregroundColor(todo.deadLine < Date() ? .red : .primary)
                                     Text("Deadline: \(Todo.dateFormatter.string(from: todo.deadLine))")
+                                        .foregroundColor(todo.deadLine < Date() ? .red : .secondary)
 
                                 }
                             }
